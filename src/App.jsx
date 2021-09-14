@@ -1,5 +1,5 @@
 import React from 'react';
-import CheckCustomerEligibility from './features/CheckCustomerEligibelity.js';
+import CheckCustomerEligibility from './features/CheckCustomerEligibility';
 
 function App() {
   return (
