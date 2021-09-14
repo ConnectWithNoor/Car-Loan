@@ -1,10 +1,12 @@
 import React from 'react';
-import CheckCustomerEligibility from './features/CheckCustomerEligibelity.js';
+// import CheckCustomerEligibility from './features/CheckCustomerEligibelity.js';
+import Disqualification from './features/Disqualification/index.jsx';
 
 function App() {
   return (
-    <div className="flex items-center justify-center h-screen">
-      <CheckCustomerEligibility />
+    <div className="">
+      {/* <CheckCustomerEligibility /> */}
+      <Disqualification />
     </div>
   );
 }
