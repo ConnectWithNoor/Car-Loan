@@ -3,10 +3,20 @@ import InputField from '../../components/InputField';
 import { FaDollarSign } from 'react-icons/fa'
 import Button from '../../components/Button';
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCustomerEligibilityThunk } from './checkCustomerEligibilityThunk';
+import { selectIsEligible } from './checkCustomerEligibilitySlice';
 
 const CheckCustomerEligibility = () => {
 
     const { register, formState: { errors }, handleSubmit } = useForm({ criteriaMode: "all" });
+
+    const dispatch = useDispatch();
+    const isEligibleSelector = useSelector(selectIsEligible)
+
+    const onSubmit = formData => {
+        dispatch(fetchCustomerEligibilityThunk(formData))
+    }
 
     return (
         <main className="flex justify-between items-center w-10/12 p-7 font-nunito h-full">
@@ -26,7 +36,7 @@ const CheckCustomerEligibility = () => {
             </section>
             <section className="bg-gray-2x p-8 w-2/4 rounded-md shadow-xl">
                 <h3 className="border-b-2 border-gray-1x pb-2 font-bold text-4xl">Loan Form</h3>
-                <form className="pt-8" onSubmit={handleSubmit(data => console.log(data))}>
+                <form className="pt-8" onSubmit={handleSubmit(onSubmit)}>
                     <InputField
                         labelFor="purchasePrice"
                         labelText="Auto Purchase Price"
