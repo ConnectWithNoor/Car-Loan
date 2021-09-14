@@ -24,7 +24,6 @@ export const checkCustomerEligibilitySlice = createSlice({
             .addMatcher(
                 (action) => action.type.endsWith('/fulfilled'),
                 (state, action) => {
-                    console.log(action)
                     state.isLoading = false;
                     state.isEligible = action.payload.isEligible;
                 }
