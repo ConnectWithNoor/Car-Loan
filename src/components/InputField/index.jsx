@@ -1,6 +1,6 @@
 import React from 'react'
 
-const InputField = ({ labelFor, labelText, type, placeholder, Icon, value, name, id, onChange }) => {
+const InputField = ({ labelFor, labelText, type, placeholder, Icon, value, name, id, onChange, required }) => {
     return (
         <div>
             <label
@@ -20,6 +20,7 @@ const InputField = ({ labelFor, labelText, type, placeholder, Icon, value, name,
                     name={name}
                     id={id}
                     onChange={onChange}
+                    required={required}
                 />
             </div>
         </div>
