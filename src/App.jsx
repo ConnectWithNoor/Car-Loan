@@ -3,7 +3,7 @@ import CheckCustomerEligibility from './features/CheckCustomerEligibelity.js';
 
 function App() {
   return (
-    <div className="">
+    <div className="flex items-center justify-center h-screen">
       <CheckCustomerEligibility />
     </div>
   );
