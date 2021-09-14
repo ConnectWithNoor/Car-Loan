@@ -2,9 +2,7 @@ import React from 'react'
 
 const CheckCustomerEligibility = () => {
     return (
-        <div>
-            Customer Eligibility features
-        </div>
+        <h1>CheckCustomerEligibility</h1>
     )
 }
 

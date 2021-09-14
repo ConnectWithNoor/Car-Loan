@@ -2,10 +2,10 @@ import React from 'react'
 
 const Button = () => {
     return (
-        <div>
+        <h1>
             Button
-        </div>
+        </h1>
     )
 }
 
-export default Button
+export default Button;
