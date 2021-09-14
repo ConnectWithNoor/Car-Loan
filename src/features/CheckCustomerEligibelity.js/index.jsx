@@ -5,7 +5,7 @@ import Button from './../../components/Button';
 
 const CheckCustomerEligibility = () => {
     return (
-        <main className="my-0 mx-auto flex justify-between items-center w-10/12 font-nunito p-7 h-full">
+        <main className="flex justify-between items-center w-10/12 p-7 font-nunito h-full">
             <section className="flex justify-between flex-col w-7/12 h-3/5 ">
                 <div className="font-extrabold text-4xl uppercase">
                     <h1>Loan mate</h1>
