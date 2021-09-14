@@ -1,6 +1,6 @@
 import React from 'react'
 
-const InputField = ({ labelFor, labelText, type, placeholder, Icon, value, name, id, onChange }) => {
+const InputField = ({ labelFor, labelText, type, placeholder, Icon, inputRef, id, error }) => {
     return (
         <div>
             <label
@@ -10,18 +10,19 @@ const InputField = ({ labelFor, labelText, type, placeholder, Icon, value, name,
                 {labelText}
             </label>
 
-            <div className="flex items-center bg-gray-1x p-3 rounded-md mb-4 mt-1 font-semibold">
+            <div className="flex items-center bg-gray-1x p-3 rounded-md mt-1 font-semibold">
                 {Icon && (<Icon />)}
                 <input
-                    className={`bg-transparent ml-2 focus:outline-none`}
+                    className={`bg-transparent ml-2 focus:outline-none w-full`}
                     type={type}
                     placeholder={placeholder}
-                    value={value}
-                    name={name}
                     id={id}
-                    onChange={onChange}
+                    {...inputRef}
                 />
             </div>
+            <p className="text-red-600 font-bold text-sm bg-transparent mb-4 h-5">
+                {error && error}
+            </p>
         </div>
     )
 }
