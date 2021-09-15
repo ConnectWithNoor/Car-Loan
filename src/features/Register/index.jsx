@@ -5,9 +5,10 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsRegistered } from './RegisterSlice';
 import { fetchUserRegistration } from './RegisterThunk';
-import CarLoan from './../../assets/images/carloan.jpg'
+import CarLoan from './../../assets/images/carloan.png'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useHistory } from 'react-router-dom'
 
 const UserRegister = () => {
 
@@ -16,6 +17,7 @@ const UserRegister = () => {
 
     const dispatch = useDispatch();
     const isRegisteredSelector = useSelector(selectIsRegistered)
+    const history = useHistory();
 
     const onSubmit = (data) => {
         setIsPasswordMatched(true)
@@ -43,6 +45,12 @@ const UserRegister = () => {
         }
     }, [isRegisteredSelector])
 
+    useEffect(() => {
+        if (isRegisteredSelector === null || isRegisteredSelector === false) {
+            history.push('/')
+        }
+    }, [])
+
     return (
         <>
             <ToastContainer />
@@ -52,10 +60,10 @@ const UserRegister = () => {
                 </div>
                 <div>
                     <div>
-                        <h2 className="text-2xl mb-10 font-bold">Congratulations.! you're eligible for the loan</h2>
+                        <h2 className="text-2xl mb-10 font-bold text-gray-900">Congratulations.! you're eligible for the loan</h2>
                     </div>
-                    <div className="bg-secondary p-4 rounded-md">
-                        <h2 className="text-2xl font-bold border-b-2 pb-2">User Registration Form</h2>
+                    <div className="bg-primary p-4 rounded-md">
+                        <h2 className="text-2xl font-bold border-b-2 pb-2 border-gray-600 text-gray-700">User Registration Form</h2>
                         <form className="pt-5" onSubmit={handleSubmit(onSubmit)}>
                             <InputField
                                 labelFor="username"
