@@ -6,13 +6,10 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCustomerEligibilityThunk } from './checkCustomerEligibilityThunk';
 import MarketingTag from './../../components/MarketingTag'
-import { BsStopwatch } from 'react-icons/bs'
-import { TiMessages } from 'react-icons/ti'
+import { AiFillCar, AiOutlineDollar } from 'react-icons/ai'
 import { useHistory } from 'react-router-dom';
 
-import {
-    selectIsEligible, selectIsLoading
-} from './checkCustomerEligibilitySlice';
+import { selectIsEligible } from './checkCustomerEligibilitySlice';
 
 const CheckCustomerEligibility = () => {
 
@@ -20,7 +17,6 @@ const CheckCustomerEligibility = () => {
 
     const dispatch = useDispatch();
     const isEligible = useSelector(selectIsEligible);
-    // const isLoading = useSelector(selectIsLoading);
     const history = useHistory()
 
 
@@ -38,10 +34,6 @@ const CheckCustomerEligibility = () => {
         }
     }, [isEligible, history])
 
-    // useEffect(() => {
-    //     showLoader
-    // }, [isLoading])
-
     return (
         <main className="flex justify-between items-center w-10/12 p-7 font-nunito h-full">
             <section className="flex flex-col justify-center w-7/12 h-3/5 ">
@@ -53,11 +45,11 @@ const CheckCustomerEligibility = () => {
                     </p>
                 </div>
                 <div className="mt-20">
-                    <MarketingTag Icon={BsStopwatch} title="Lorem Ipsum" description="dolor sit amet consectetur adipisicing elit. velit dolores maio" />
-                    <MarketingTag Icon={TiMessages} title="Lorem Ipsum" description="dolor sit amet consectetur adipisicing elit. velit dolores maio" />
+                    <MarketingTag Icon={AiOutlineDollar} title="Lorem Ipsum" description="dolor sit amet consectetur adipisicing elit. velit dolores maio" />
+                    <MarketingTag Icon={AiFillCar} title="Lorem Ipsum" description="dolor sit amet consectetur adipisicing elit. velit dolores maio" />
                 </div>
             </section>
-            <section className="bg-gray-2x p-5 w-2/5 rounded-md shadow-xl">
+            <section className="bg-secondary p-5 w-2/5 rounded-md shadow-xl">
                 <h3 className="border-b-2 border-gray-1x pb-2 font-bold text-3xl">Loan Form</h3>
                 <form className="pt-4" onSubmit={handleSubmit(onSubmit)}>
                     <InputField
