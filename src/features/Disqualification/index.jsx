@@ -1,10 +1,13 @@
-import React from 'react'
-import { HiOutlineMail } from 'react-icons/hi'
-import { AiOutlinePhone } from 'react-icons/ai'
+import React from 'react';
+import { HiOutlineMail } from 'react-icons/hi';
+import { AiOutlinePhone } from 'react-icons/ai';
+import notQualified from './../../assets/images/notqualified.jpg'
 
 const Disqualification = () => {
     return (
         <div className="flex flex-col items-center">
+            <img className="h-96" src={notQualified} alt="Not qualified" />
+
             <p className="text-4xl font-bold tracking-wide">
                 You're Not Eligible to apply for loan
             </p>
