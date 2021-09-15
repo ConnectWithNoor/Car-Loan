@@ -9,7 +9,6 @@ const InputField = ({ labelFor, labelText, type, placeholder, Icon, inputRef, id
             >
                 {labelText}
             </label>
-            {messageLabel && <p className="text-sm">{messageLabel}</p>}
             <div className="flex items-center bg-gray-1x p-3 rounded-md mt-1 font-semibold">
                 {Icon && (<Icon />)}
                 <input

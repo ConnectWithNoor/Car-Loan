@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import InputField from '../../components/InputField'
 import Button from '../../components/Button'
 import { useForm } from 'react-hook-form'
@@ -6,9 +6,13 @@ import { useForm } from 'react-hook-form'
 const UserRegister = () => {
 
     const { register, formState: { errors }, handleSubmit } = useForm({ criteriaMode: "all" });
+    const [isPasswordMatched, setIsPasswordMatched] = useState(true);
 
     const onSubmit = (data) => {
-        console.log(data)
+        setIsPasswordMatched(true)
+        if (data.password !== data.confirmPassword) {
+            setIsPasswordMatched(false)
+        }
     }
 
     return (
@@ -22,10 +26,10 @@ const UserRegister = () => {
                     <InputField
                         labelFor="username"
                         labelText="Username"
-                        type="email"
+                        type="text"
                         placeholder="example@abc.com"
-                        inputRef={{ ...register('username', { required: true }) }}
-                        error={`${errors.username?.type === 'required' ? "Required" : ''}`}
+                        inputRef={{ ...register('username', { required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g }) }}
+                        error={`${errors.username?.type === 'required' ? "Required" : errors.username?.type === 'pattern' ? "Please type valid email" : ''}`}
                     />
 
                     <InputField
@@ -35,8 +39,7 @@ const UserRegister = () => {
                         placeholder="********"
                         inputRef={{ ...register('password', { required: true, minLength: 8, pattern: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/ }) }}
                         error={`${(errors.password?.type === 'required' ? "Required" : '')
-                            || (errors.password?.type === 'minLength' ? "Password must be 8 characters long" : '')}`}
-                        messageLabel="Password must contain letters, number and special characters"
+                            || (errors.password?.type === 'minLength' ? "Password must be 8 characters long" : errors.password?.type === 'pattern' ? 'Password must contain letters, number and special characters' : '')}`}
                     />
 
                     <InputField
@@ -45,10 +48,8 @@ const UserRegister = () => {
                         type="password"
                         placeholder="********"
                         name="confirmPassword"
-                        inputRef={{ ...register('confirmPassword', { required: true, minLength: 8, pattern: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/ }) }}
-                        error={`${(errors.confirmPassword?.type === 'required' ? "Required" : '')
-                            || (errors.confirmPassword?.type === 'minLength' ? "Password must be 8 characters long" : '')}`}
-                        messageLabel="Password must contain letters, number and special characters"
+                        inputRef={{ ...register('confirmPassword', { required: true, minLength: 8 }) }}
+                        error={`${(errors.confirmPassword?.type === 'required' ? "Required" : !isPasswordMatched ? 'Password does not match' : '')}`}
                     />
 
                     <Button btnText="Register" btnType="submit" />
