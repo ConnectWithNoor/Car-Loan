@@ -1,18 +1,27 @@
 import React, { useState } from 'react';
 import InputField from '../../components/InputField'
 import Button from '../../components/Button'
-import { useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectIsRegistered } from './RegisterSlice';
+import { fetchUserRegistration } from './RegisterThunk';
 
 const UserRegister = () => {
 
     const { register, formState: { errors }, handleSubmit } = useForm({ criteriaMode: "all" });
     const [isPasswordMatched, setIsPasswordMatched] = useState(true);
 
+    const dispatch = useDispatch();
+    const isRegisteredSelector = useSelector(selectIsRegistered)
+
     const onSubmit = (data) => {
         setIsPasswordMatched(true)
         if (data.password !== data.confirmPassword) {
             setIsPasswordMatched(false)
+            return;
         }
+
+        dispatch(fetchUserRegistration(data))
     }
 
     return (
