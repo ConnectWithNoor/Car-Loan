@@ -49,8 +49,8 @@ const CheckCustomerEligibility = () => {
                     <MarketingTag Icon={AiFillCar} title="Lorem Ipsum" description="dolor sit amet consectetur adipisicing elit. velit dolores maio" />
                 </div>
             </section>
-            <section className="bg-secondary p-5 w-2/5 rounded-md shadow-xl">
-                <h3 className="border-b-2 border-gray-1x pb-2 font-bold text-3xl">Loan Form</h3>
+            <section className="bg-primary p-5 w-2/5 rounded-md shadow-xl">
+                <h3 className="border-b-2 border-gray-600 text-gray-700 pb-2 font-bold text-3xl">Loan Form</h3>
                 <form className="pt-4" onSubmit={handleSubmit(onSubmit)}>
                     <InputField
                         labelFor="purchasePrice"

@@ -2,7 +2,7 @@ import React from 'react'
 
 const InputField = ({ labelFor, labelText, type, placeholder, Icon, inputRef, id, error }) => {
     return (
-        <div>
+        <div className="text-gray-900">
             <label
                 className="font-bold text-md"
                 htmlFor={labelFor}
