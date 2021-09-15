@@ -4,7 +4,7 @@ const InputField = ({ labelFor, labelText, type, placeholder, Icon, inputRef, id
     return (
         <div>
             <label
-                className="font-bold text-lg"
+                className="font-bold text-md"
                 htmlFor={labelFor}
             >
                 {labelText}
@@ -20,8 +20,7 @@ const InputField = ({ labelFor, labelText, type, placeholder, Icon, inputRef, id
                     {...inputRef}
                 />
             </div>
-            
-            <p className="text-red-600 font-bold text-sm bg-transparent mb-4 h-5">
+            <p className="text-red-600 font-bold text-sm bg-transparent mb-3 h-4 text-right">
                 {error && error}
             </p>
         </div>

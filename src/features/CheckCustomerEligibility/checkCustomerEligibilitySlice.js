@@ -38,8 +38,6 @@ export const checkCustomerEligibilitySlice = createSlice({
     },
 });
 
-// export const { addUser } = profileSlice.actions;
-
 export const selectIsEligible = (state) => state.eligibility.isEligible;
 export const selectIsLoading = (state) => state.eligibility.isLoading;
 export const selectError = (state) => state.eligibility.error;
