@@ -4,16 +4,9 @@ module.exports = {
   theme: {
     extend: {
       backgroundColor: {
-        'gray-1x': '#F7F7F7',
-        'gray-2x': '#E3E3E3',
-        'gray-3x': '#CFCFCF',
-        'gray-4x': '#BBBBBB',
-      },
-      textColor: {
-        'gray-1x': '#F7F7F7',
-        'gray-2x': '#E3E3E3',
-        'gray-3x': '#CFCFCF',
-        'gray-4x': '#BBBBBB',
+        'primary': '#A6B1E1',
+        'secondary': '#DCD6F7',
+        'primary-lite': '#F4EEFF',
       },
       fontFamily: {
         nunito: "'Nunito', sans- serif",
