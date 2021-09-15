@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply font-nunito text-gray-600;
+    @apply font-nunito text-primary-lite bg-bg-primary;
   }
 }
 
