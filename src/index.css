@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply font-nunito text-gray-600 flex items-center justify-center h-screen;
+    @apply font-nunito text-gray-600;
   }
 }
 
