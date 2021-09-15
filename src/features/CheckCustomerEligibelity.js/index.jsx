@@ -19,7 +19,7 @@ const CheckCustomerEligibility = () => {
                     </p>
                 </div>
             </section>
-            <section className="bg-gray-2x p-8 w-1/2 rounded-md shadow-xl">
+            <section className="p-8 w-1/2 rounded-md shadow-xl">
                 <h3 className="border-b-2 border-gray-1x pb-2 font-bold text-4xl">Loan Form</h3>
                 <form className="pt-8">
                     <InputField

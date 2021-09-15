@@ -9,7 +9,7 @@ const InputField = ({ labelFor, labelText, type, placeholder, Icon, inputRef, id
             >
                 {labelText}
             </label>
-            <div className="flex items-center bg-gray-1x p-3 rounded-md mt-1 font-semibold">
+            <div className="flex items-center bg-primary-lite p-3 rounded-md mt-1 font-semibold">
                 {Icon && (<Icon />)}
                 <input
                     className={`bg-transparent ml-2 focus:outline-none w-full`}
