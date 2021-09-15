@@ -8,7 +8,7 @@ import { fetchCustomerEligibilityThunk } from './checkCustomerEligibilityThunk';
 import MarketingTag from './../../components/MarketingTag'
 import { BsStopwatch } from 'react-icons/bs'
 import { TiMessages } from 'react-icons/ti'
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import {
     selectIsEligible, selectIsLoading
@@ -21,22 +21,22 @@ const CheckCustomerEligibility = () => {
     const dispatch = useDispatch();
     const isEligible = useSelector(selectIsEligible);
     // const isLoading = useSelector(selectIsLoading);
-    // const history = useHistory()
+    const history = useHistory()
 
 
     const onSubmit = formData => {
         dispatch(fetchCustomerEligibilityThunk(formData))
     }
 
-    // useEffect(() => {
-    //     if (isEligible !== null) {
-    //         if (isEligible) {
-    //             history.push('/register')
-    //         } else {
-    //             history.push('/disqualification')
-    //         }
-    //     }
-    // }, [isEligible, history])
+    useEffect(() => {
+        if (isEligible !== null) {
+            if (isEligible) {
+                history.push('/register')
+            } else {
+                history.push('/disqualification')
+            }
+        }
+    }, [isEligible, history])
 
     // useEffect(() => {
     //     showLoader
