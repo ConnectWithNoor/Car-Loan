@@ -20,6 +20,7 @@ const InputField = ({ labelFor, labelText, type, placeholder, Icon, inputRef, id
                     {...inputRef}
                 />
             </div>
+            
             <p className="text-red-600 font-bold text-sm bg-transparent mb-4 h-5">
                 {error && error}
             </p>
