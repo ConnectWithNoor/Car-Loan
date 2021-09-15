@@ -17,12 +17,12 @@ export const customerEligibility = params => {
             }, DELAY_TIME)
         } else if (purchasePrice > oneFifthOfIncome(yearlyIncome) || creditScore < MINIMUM_CREDIT) {
             return setTimeout(() => {
-                resolve({ "isEligible": "false" })
+                resolve({ "isEligible": false })
             }, DELAY_TIME)
         }
 
         return setTimeout(() => {
-            resolve({ "isEligible": "true" })
+            resolve({ "isEligible": true })
         }, DELAY_TIME)
     })
 }
