@@ -5,14 +5,18 @@ import Button from '../../components/Button';
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCustomerEligibilityThunk } from './checkCustomerEligibilityThunk';
-import { selectIsEligible } from './checkCustomerEligibilitySlice';
+import {
+    selectIsEligible, selectIsLoading, selectError
+} from './checkCustomerEligibilitySlice';
 
 const CheckCustomerEligibility = () => {
 
     const { register, formState: { errors }, handleSubmit } = useForm({ criteriaMode: "all" });
 
     const dispatch = useDispatch();
-    const isEligibleSelector = useSelector(selectIsEligible)
+    const isEligibleSelector = useSelector(selectIsLoading);
+    const isLoading = useSelector(selectIsEligible);
+    const hasError = useSelector(selectError);
 
     const onSubmit = formData => {
         dispatch(fetchCustomerEligibilityThunk(formData))
@@ -44,8 +48,8 @@ const CheckCustomerEligibility = () => {
                         placeholder="25,000.00"
                         Icon={FaDollarSign}
                         id="purchasePrice"
-                        inputRef={{ ...register("purchasePrice", { required: true }) }}
-                        error={`${errors.purchasePrice?.type === 'required' ? "Required" : ''}`}
+                        inputRef={{ ...register("purchasePrice", { required: true, pattern: /^[0-9]+$/ }) }}
+                        error={`${errors.purchasePrice?.type === 'required' ? "Required" : errors.purchasePrice?.type === 'pattern' ? 'Please type numbers only' : ''}`}
                     />
 
 
@@ -65,8 +69,8 @@ const CheckCustomerEligibility = () => {
                         type="text"
                         placeholder="2021"
                         id="autoModel"
-                        inputRef={{ ...register("autoModel", { required: true }) }}
-                        error={`${errors.autoModel?.type === 'required' ? "Required" : ''}`}
+                        inputRef={{ ...register("autoModel", { required: true, pattern: /^[0-9]+$/ }) }}
+                        error={`${errors.autoModel?.type === 'required' ? "Required" : errors.autoModel?.type === 'pattern' ? 'Please type numbers only' : ''}`}
                     />
 
 
@@ -77,8 +81,8 @@ const CheckCustomerEligibility = () => {
                         placeholder="25,000.00"
                         Icon={FaDollarSign}
                         id="yearlyIncome"
-                        inputRef={{ ...register("yearlyIncome", { required: true }) }}
-                        error={`${errors.yearlyIncome?.type === 'required' ? "Required" : ''}`}
+                        inputRef={{ ...register("yearlyIncome", { required: true, pattern: /^[0-9]+$/ }) }}
+                        error={`${errors.yearlyIncome?.type === 'required' ? "Required" : errors.yearlyIncome?.type === 'pattern' ? 'Please type numbers only' : ''}`}
                     />
 
                     <InputField

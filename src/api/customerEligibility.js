@@ -9,7 +9,7 @@ export const customerEligibility = params => {
 
         if (!purchasePrice || !autoMake || !autoModel || !yearlyIncome || !creditScore) {
             return setTimeout(() => {
-                reject({ "error": "Please provide all the fields", "status": "400" })
+                reject({ "error": "Please provide all the correct fields", "status": "400" })
             }, DELAY_TIME)
         } else if (purchasePrice > PURCHASE_PRICE_LIMIT) {
             return setTimeout(() => {
